@@ -1,48 +1,42 @@
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>location</th>
-      <th>total_cases</th>
-      <th>new_cases</th>
-      <th>total_vaccinations</th>
-      <th>new_vaccinations</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Denmark</td>
-      <td>2637414.0</td>
-      <td>30480.0</td>
-      <td>13163048.0</td>
-      <td>2061.0</td>
-    </tr>
-    <tr>
-      <td>Poland</td>
-      <td>5582217.0</td>
-      <td>18771.0</td>
-      <td>53088071.0</td>
-      <td>38378.0</td>
-    </tr>
-    <tr>
-      <td>Switzerland</td>
-      <td>2711618.0</td>
-      <td>15127.0</td>
-      <td>15536790.0</td>
-      <td>5065.0</td>
-    </tr>
-    <tr>
-      <td>Ukraine</td>
-      <td>4986161.0</td>
-      <td>26700.0</td>
-      <td>31617039.0</td>
-      <td>62935.0</td>
-    </tr>
-    <tr>
-      <td>United States</td>
-      <td>78648651.0</td>
-      <td>99820.0</td>
-      <td>550924900.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>COVID Data</title>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<script type="text/javascript">
+
+
+var dataset;
+
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 200)
+            .attr("height", 500);
+
+
+d3.csv("covid-report.csv", function(data) {
+        dataset = data;
+        showdata();
+
+});
+
+function showdata() {
+
+       d3.select("body").selectAll("p")
+        .data(dataset)
+        .enter()
+        .append("p")
+        .text(function(d) {return d.name +", "+d.age;});
+
+  };
+
+
+</script>
+
+
+<body>
+</body>
+</html>
