@@ -2,7 +2,7 @@ import requests, pandas as pd
 
 # vars
 src_filename = 'owid-covid-latest.csv'
-dst_filename = 'index.html'
+dst_filename = 'table.html'
 dst_path = 'public/'
 url = 'https://covid.ourworldindata.org/data/latest/' + src_filename
 
