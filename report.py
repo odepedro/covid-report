@@ -2,7 +2,7 @@ import requests, pandas as pd
 
 # vars
 src_filename = 'owid-covid-latest.csv'
-dst_filename = 'covid-report.csv'
+dst_filename = 'index.html'
 dst_path = 'public/'
 url = 'https://covid.ourworldindata.org/data/latest/' + src_filename
 
@@ -23,4 +23,6 @@ filtered_df = df[boolean_series]
 
 # Write the output to dest_filename
 print(filtered_df)
-filtered_df.to_csv(dst_path + dst_filename, sep=',', index=False) 
+# filtered_df.to_csv(dst_path + dst_filename, sep=',', index=False) 
+filtered_df.to_html(dst_path + dst_filename, index=False)
+# print(filtered_df.to_html())
