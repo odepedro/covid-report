@@ -4,7 +4,7 @@
 name: Push report to GitHub Pages
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
   schedule:
   - cron: "0 3 * * *"
   push:
